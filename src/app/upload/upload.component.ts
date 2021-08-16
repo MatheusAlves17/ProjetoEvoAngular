@@ -22,7 +22,7 @@ export class UploadComponent implements OnInit {
     console.log(this.imagemUrl);
   }
 
-  carregarImagem(file: FileList) {
+  subirFoto(file: FileList) {
     this.selectFoto = file.item(0);
     this.fotoSelecionada = this.selectFoto;
     var reader = new FileReader();
@@ -32,9 +32,9 @@ export class UploadComponent implements OnInit {
     reader.readAsDataURL(this.fotoSelecionada);
   }
 
-  public uploadImagem = (files: any) => {
+  public uploadFoto = (files: any) => {
     console.log(this.imagemUrl);
-    this.carregarImagem(files);
+    this.subirFoto(files);
     if (files.length === 0) {
       return;
     }
@@ -58,7 +58,7 @@ export class UploadComponent implements OnInit {
       });
   };
 
-  public criarPathImg = (serverPath: any) => {
+  public criarPathFoto = (serverPath: any) => {
     console.log(serverPath);
     var valor = "/assets/img/default.png";
 

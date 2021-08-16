@@ -19,7 +19,7 @@
       <tbody *ngFor="let funcionario of funcionarios">
         <tr *ngIf="funcionario.departamentoId == departamentoFun">
             <td><strong> {{funcionario.id}} </strong> </td>
-            <td><img [src]="criarPathImg(funcionario.foto)" alt="profile picture" style="width:120px; height:100px;"></td>
+            <td><img [src]="criarPathFoto(funcionario.foto)" alt="profile picture" style="width:120px; height:100px;"></td>
             <td> {{funcionario.nome}} </td>
             <td> {{funcionario.rg}} </td>
             <td> {{funcionario.departamentoId}} </td>
@@ -45,7 +45,7 @@
         <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" formControlName="nome">
       </div>
       <div class="col-sm-6 mt-4">
-        <app-upload (onUploadFinished)="uploadConcluido($event)" [imagemUrl]="funcionarios.foto"></app-upload>
+        <app-upload (onUploadFinished)="uploadFoto($event)" [imagemUrl]="funcionarios.foto"></app-upload>
       </div>
       <div class="col-sm-6 mt-4">
         <input type="text" class="form-control" placeholder="RG" aria-label="RG" formControlName="rg">

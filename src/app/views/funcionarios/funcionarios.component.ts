@@ -114,12 +114,12 @@ export class FuncionariosComponent implements OnInit {
     );
   }
 
-  public uploadConcluido = (event: { dbPath: string; }) => {
+  public uploadFoto = (event: { dbPath: string; }) => {
     this.foto = event.dbPath;
     console.log("vamo: ",this.foto);
   };
 
-  public criarPathImg = (serverPath: string) => {
+  public criarPathFoto = (serverPath: string) => {
     if(serverPath != ''){
       return `https://localhost:44398/${serverPath}`;
     }
