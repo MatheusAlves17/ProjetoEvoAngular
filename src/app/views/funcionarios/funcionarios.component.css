@@ -8,12 +8,32 @@
     margin: auto;
 }
 
-.row{
-    margin: auto;
+.tableHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 10px;
 }
+
 .form-group{
     margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background-color:#0d6efd;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.btn-group button{
+    margin-left: 10px;
+}
+
+img{
+    border-radius: 25px;
 }
