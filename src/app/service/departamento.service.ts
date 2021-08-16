@@ -9,7 +9,7 @@ import { Departamento } from '../models/Departamento';
 })
 export class DepartamentoService {
 
-  url = `${environment.url}/api/Departamento`;
+  // url = `${environment.url}/api/Departamento`;
 
   constructor(private http: HttpClient) { }
   
@@ -24,7 +24,7 @@ export class DepartamentoService {
   }
 
   getDepartamento(id: number):Observable<Departamento>{
-    return this.http.get<Departamento>(`${environment.url}/${id}`);
+    return this.http.get<Departamento>("https://localhost:44398/api/Departamento"+id);
   }
 
   public postDepartamento(departamento: Departamento):Observable<Departamento>{

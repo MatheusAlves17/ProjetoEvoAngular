@@ -9,7 +9,7 @@ import { Funcionario } from '../models/Funcionario';
 })
 export class FuncionarioService {
 
-  url = `${environment.url}/api/Departamento`;
+  // url = `${environment.url}/api/Departamento`;
 
   constructor(private http: HttpClient) { }
   
@@ -24,7 +24,7 @@ export class FuncionarioService {
   }
 
   getFuncionario(id: number):Observable<Funcionario>{
-    return this.http.get<Funcionario>(`${environment.url}/${id}`);
+    return this.http.get<Funcionario>("https://localhost:44398/api/Funcionarios"+id);
   }
 
   postFuncionario(funcionario: Funcionario){
