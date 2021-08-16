@@ -45,7 +45,7 @@
         <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" formControlName="nome">
       </div>
       <div class="col-sm-6 mt-4">
-        <app-upload (onUploadFinished)="uploadConcluido($event)" [urlImagem]="funcionarios.foto"></app-upload>
+        <app-upload (onUploadFinished)="uploadConcluido($event)" [imagemUrl]="funcionarios.foto"></app-upload>
       </div>
       <div class="col-sm-6 mt-4">
         <input type="text" class="form-control" placeholder="RG" aria-label="RG" formControlName="rg">

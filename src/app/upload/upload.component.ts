@@ -8,10 +8,10 @@ import { HttpEventType, HttpClient } from '@angular/common/http';
   styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent implements OnInit {
-  @Input() urlImagem: string='';
-  public imagemSelecionada!: File;
+  @Input() imagemUrl: string='';
+  public fotoSelecionada!: File;
   progress: number | undefined;
-  imagemSelect: any;
+  selectFoto: any;
   message: string | undefined;
 
   @Output() public onUploadFinished = new EventEmitter();
@@ -19,21 +19,21 @@ export class UploadComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    console.log(this.urlImagem);
+    console.log(this.imagemUrl);
   }
 
   carregarImagem(file: FileList) {
-    this.imagemSelect = file.item(0);
-    this.imagemSelecionada = this.imagemSelect;
+    this.selectFoto = file.item(0);
+    this.fotoSelecionada = this.selectFoto;
     var reader = new FileReader();
     reader.onload = (event: any) => {
-      this.urlImagem = event.target.result;
+      this.imagemUrl = event.target.result;
     };
-    reader.readAsDataURL(this.imagemSelecionada);
+    reader.readAsDataURL(this.fotoSelecionada);
   }
 
   public uploadImagem = (files: any) => {
-    console.log(this.urlImagem);
+    console.log(this.imagemUrl);
     this.carregarImagem(files);
     if (files.length === 0) {
       return;
