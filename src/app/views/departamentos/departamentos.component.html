@@ -1,0 +1,52 @@
+<!-- TABELA -->
+<div>
+    <h1>Departamentos</h1>
+    <button class="btn btn-success" (click)="departamentoNovo()">+ Departamento</button>
+    <table class="table">
+        <thead class="table-dark">
+          <tr>
+              <th><strong>#</strong></th>
+              <th><strong>Nome</strong> </th>
+              <th><strong>Sigla</strong></th>
+              <th><strong>Ações</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let departamento of departamentos">
+              <td> <strong>{{departamento.id}}</strong> </td>
+              <td> {{departamento.nome}} </td>
+              <td> {{departamento.sigla}} </td>
+              <td>
+                <div class="btn-group">
+                  <button (click)="departamentoSelect(departamento)" class="btn btn-outline-warning btn-sm">Editar</button>
+                  <button class="btn btn-outline-primary btn-sm" (click)="redirecionar(departamento)">Detalhes</button>
+                  <button class="btn btn-outline-danger btn-sm" (click)="deletarDepartamento(departamento.id)">Deletar</button>
+                </div>
+              </td>
+          </tr>
+        </tbody>
+    </table>    
+</div>
+<div *ngIf="departamentoSelecionado">
+  <div class="row">
+    <div class="col">
+      <h2>Cód Departamento: {{departamentoSelecionado.id}}</h2>
+    </div>
+  </div>
+  <hr>
+  <!--  FORMULARIO  -->
+  <form [formGroup]="departamentoForm" (submit)="submitDepartamento()">
+    <div class="row mt-4">
+      <div class="col-sm-6 mt-4">
+        <input type="text" class="form-control" placeholder="Nome" formControlName="nome">
+      </div>
+      <div class="col-sm-6 mt-4">
+        <input type="text" class="form-control" placeholder="Sigla" formControlName="sigla">
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" [disabled]="!departamentoForm.value">Salvar</button>
+    </div>
+    <br>
+  </form>
+</div>

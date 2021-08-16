@@ -1,0 +1,59 @@
+<div class="tableContent">
+  <a routerLink="" >back</a>
+  <h1>Funcionarios</h1>
+    <button class="btn btn-success" (click)="funcionarioNovo()">+ Funcionario</button>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+            <th><strong>#</strong></th>
+            <th><strong>Nome</strong></th>
+            <th><strong>Foto</strong></th>
+            <th><strong>RG</strong></th>
+            <th><strong>Departamento</strong></th>
+            <th><strong>Ações</strong></th>
+        </tr>
+      </thead>
+      
+      <tbody *ngFor="let funcionario of funcionarios">
+        <tr *ngIf="funcionario.departamentoId == departamentoFun">
+            <td><strong> {{funcionario.id}} </strong> </td>
+            <td> {{funcionario.nome}} </td>
+            <td> {{funcionario.foto}} </td>
+            <td> {{funcionario.rg}} </td>
+            <td> {{funcionario.departamentoId}} </td>
+            <div class="btn-group">
+              <button (click)="funcionarioSelect(funcionario)" class="btn btn-outline-warning btn-sm">Editar</button>
+              <button (click)="deletarFuncionario(funcionario.id)" class="btn btn-outline-danger btn-sm">Deletar</button>
+            </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+<div *ngIf="funcionarioSelecionado">
+  <div class="row">
+    <div class="col">
+      <h1>Cód funcionário: {{funcionarioSelecionado.id}}</h1>
+    </div>
+  </div>
+  <hr>
+  <form [formGroup]="funcionarioForm" (submit)="submitFuncionario()">
+    <div class="row mt-4">
+      <div class="col-sm-6 mt-4">
+        <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" formControlName="nome">
+      </div>
+      <div class="col-sm-6 mt-4">
+        <input type="text" class="form-control" placeholder="Foto" aria-label="Foto" formControlName="foto">
+      </div>
+      <div class="col-sm-6 mt-4">
+        <input type="text" class="form-control" placeholder="RG" aria-label="RG" formControlName="rg">
+      </div>
+      <div class="col-sm-6 mt-4">
+        <input type="text" class="form-control" placeholder="Departamento" aria-label="Departamento" formControlName="departamentoId">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>
